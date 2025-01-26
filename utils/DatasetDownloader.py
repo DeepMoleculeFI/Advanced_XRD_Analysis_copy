@@ -44,9 +44,9 @@ def Download_wo_tex_ptb(file_list):
     Download_wo_tex_ptb(range(0,20))
     
     """
-    
+    print(dir_now)
     if "datasets" not in os.listdir(dir_now):
-        os.mkdirs(dir_now + "/datasets")
+        os.makedirs(dir_now + "/datasets")
 
     if "wo_tex_ptb" not in os.listdir(dir_now+ "/datasets"):
         os.mkdir(dir_now + "/datasets/wo_tex_ptb")
@@ -56,13 +56,15 @@ def Download_wo_tex_ptb(file_list):
         output = outputs[i]
         if output not in os.listdir(dir_now + "/datasets/wo_tex_ptb"):
             gdown.download(url, output, quiet=True, fuzzy =True)
+            print(dir_now + "/" + output)
+            print(dir_now + "/datasets/wo_tex_ptb")
             shutil.move(dir_now + "/" + output, dir_now + "/datasets/wo_tex_ptb")
             
 def Download_Ex_dataset_2():
     url = "https://drive.google.com/file/d/1esaWNtf0tZoak7qbhAQMDpZi7u8qo4d2/view?usp=sharing"
     output = "Ex_dataset_2.csv"
     if "datasets" not in os.listdir(dir_now):
-        os.mkdirs(dir_now + "/datasets") 
+        os.makedirs(dir_now + "/datasets") 
         
     if "Ex_dataset_2" not in os.listdir(dir_now+ "/datasets"):
         os.mkdir(dir_now + "/datasets/Ex_dataset_2")
